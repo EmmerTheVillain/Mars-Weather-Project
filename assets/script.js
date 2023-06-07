@@ -3,6 +3,7 @@ var api_key = ' bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
+var dateInputEl = $('#datepicker');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
@@ -75,13 +76,23 @@ var fetchRoverPhotos = (rover, date) => {
   
     var roverSelect = document.getElementById('roverSelect');
     var dateInput = document.getElementById('dateInput');
-  
+
     var selectedRover = roverSelect.value;
     var selectedDate = dateInput.value;
   
     // Call the function to fetch rover photos
     fetchRoverPhotos(selectedRover, selectedDate);
+    
   });
+
+  //datepicker widget
+  $(function () {
+    $('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true,
+    });
+  });
+  
   
   // Call the function to fetch Mars weather on page load
   fetchMarsWeather();
