@@ -36,9 +36,11 @@ var fetchMarsWeather = () => {
     });
 };
 
+//function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
     var apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&api_key=bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3`;
   
+    //fetch of api
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
