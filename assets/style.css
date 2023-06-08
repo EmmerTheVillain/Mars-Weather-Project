@@ -1,0 +1,6 @@
+:root {
+    /* declare a variable with `--` syntax */
+    --dark: #703e0f;
+    --light: #c9f3fa;
+    --light-porange: #fda553;
+}
