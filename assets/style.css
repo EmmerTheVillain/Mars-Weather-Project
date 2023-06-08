@@ -1,6 +1,14 @@
 :root {
     /* declare a variable with `--` syntax */
-    --dark: #703e0f;
+    --dark: #964e0b;
+    --dark-orange: rgb(185, 105, 7);  
     --light: #c9f3fa;
     --light-porange: #fda553;
+}
+body{
+    background-color: var(--dark);
+}
+.card{
+    background-color: var(--dark-orange);
+    color: var(--light)
 }
