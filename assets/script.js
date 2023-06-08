@@ -3,7 +3,7 @@ var api_key = 'bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
-var dateInputEl = $('#datepicker');
+var dateInputEl = $('#dateInput');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
@@ -21,7 +21,7 @@ var fetchMarsWeather = () => {
 
             var labelE1 = document.createElement('span');
             labelE1.classList.add('weather-label');
-            labelE1.textContent = '${key}:';
+            labelE1.textContent = '${key}';
 
             var valueE1 = document.createElement('span');
             valueE1.classList.add('weather-value');
@@ -87,9 +87,9 @@ var fetchRoverPhotos = (rover, date) => {
 
   //datepicker widget
   $(function () {
-    $('#datepicker').datepicker({
-      changeMonth: true,
-      changeYear: true,
+    $('#dateInput').datepicker({
+      dateFormat: 'yy-mm-dd',
+      maxDate: new Date(),
     });
   });
   
