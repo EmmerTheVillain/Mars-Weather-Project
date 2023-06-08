@@ -13,47 +13,50 @@
     <title>Mars Weather and Photos</title>
 </head>
 <body>
-    <!-- header section -->
-        <div class ="container d-flex align-items-stretch text-center justify-content-center"> <!-- this should be colored orange maybe? -->
-            <div class = "card col-3 p-2 m-2 ">
+    <!-- header/navbar section -->
+    <div class ="container d-flex align-items-stretch text-center"> <!-- this should be colored orange maybe? -->
+         <div class = "card col-4 p-2 m-2 ">
                 <h1>Mars Weather</h1>
-            </div>
-            <div class = "card col-6 p-2 m-2 " id="weatherContainer">
-                <p>NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
-            </div>
         </div>
-
+        <div class = "card col-7 p-2 m-2 " id="weatherContainer">
+                <p>NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
+        </div>
+    </div>
+    <!-- main body section -->
     <div class ="container">    
-        <div class="row d-flex ">
-            <div class="card col-4 border p-2 m-2 ">
+        <div class="row d-flex">
+            <div class="card col-4 p-2 m-2">
                 <h2>Rover Photos</h2>
-                <form id="roverForm" class = "card m-2">
-                    <label for="roverSelect">Select Rover:</label>
+                <form id="roverForm" class = "m-2 p-2">
+                    <div class="col-5 m-2" >
+                    <label for="roverSelect" >Select Rover:</label>
                     <select id="roverSelect">
                         <option value="curiousity">Curiosity</option>
                         <option value="opportunity">Opportunity</option>
                         <option value="spirit">Spirit</option>
                     </select>
-
-                <label for="dateInput">Select Date:</label>
-                <input type="date" id="dateInput">
-                <button type="submit" class="btn btn-primary">Get Photos</button>
-            
+                </div>
+                <div class = "col-6">
+                    <label for="dateInput">Select Date:</label>
+                    <input type="date" id="dateInput">
+                    <button type="submit" class="btn btn-primary m-2">Get Photos</button>
+                </div>
+                </form>
                 <div class = "card m-2 p-2">
-                <button type="button" id="historyButton" class="btn btn-primary">History</button>
+                <button type="button" id="historyButton" class="btn btn-primary col-4">History</button>
 
-                 <div id="historyInfo" ></div>
+                 <div id="historyInfo" class="col-12"></div>
                  <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cum qui vel nesciunt esse, unde, architecto voluptatum perspiciatis commodi sunt provident quia pariatur earum cumque odio iste autem veniam consequatur?</P>
                 </div>    
-        </div>
-        <div class = "card col-7 m-2 p-2">
-            <div class = "col-12 text-center p-2 m-2" >
-               <h2 class = "card-header">Mars Weather for: (date)</h2> <!-- DayJS date here  -->
             </div>
-            <div><!-- output for weather api content-->
-                <P class = "card-text col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
-            </div>
-            <div class ="col-6" id="photosContainer">
+            <div class = "card col-7 m-2 p-2">
+                <div class = "col-12 text-center p-2 m-2" >
+                    <h2 class = "card-header">Mars Weather for: (date)</h2> <!-- DayJS date here  -->
+                </div>
+                <div><!-- output for weather api content-->
+                    <P class = "card-text col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+                </div>
+                 <div class ="col-6" id="photosContainer"><!-- output for the photos -->
 
             </div>
         </div>
