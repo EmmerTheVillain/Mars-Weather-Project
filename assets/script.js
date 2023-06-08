@@ -1,13 +1,13 @@
-var api_key = 'bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
+var apiKey = 'qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA';
 
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
-var dateInputEl = $('#datepicker');
+var dateInputEl = $('#dateInput');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
-  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key=bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3&feedtype=json&ver=1.0';
+  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key=qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA&feedtype=json&ver=1.0';
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -21,7 +21,7 @@ var fetchMarsWeather = () => {
 
             var labelE1 = document.createElement('span');
             labelE1.classList.add('weather-label');
-            labelE1.textContent = '${key}:';
+            labelE1.textContent = '${key}';
 
             var valueE1 = document.createElement('span');
             valueE1.classList.add('weather-value');
@@ -39,6 +39,7 @@ var fetchMarsWeather = () => {
 
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
+<<<<<<< HEAD
   var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ rover +'/photos?earth_date='+ date +'&api_key='+ api_key;
 
   //fetch of api
@@ -69,6 +70,38 @@ var fetchRoverPhotos = (rover, date) => {
       console.log('Error fetching rover photos:', error);
     });
 };
+=======
+    var apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&api_key=qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA`;
+  
+    //fetch of api
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+          var photos = data.photos;
+  
+          photosContainer.innerHTML = '';
+  
+          photos.forEach(photo => {
+              var photoUrl = photo.img_src;
+              var roverName = photo.rover.name;
+              var cameraName = photo.camera.full_name;
+  
+              var photoE1 = document.createElement('img');
+              photoE1.classList.add('photo');
+  
+              var imgE1 = document.createElement('img');
+              imgE1.src = photoUrl;
+              imgE1.alt = '${roverName} - ${cameraName}';
+  
+              photoE1.appendChild(imgE1);
+              photosContainer.appendChild(photoE1);
+          });
+      })
+      .catch(error => {
+        console.log('Error fetching rover photos:', error);
+      });
+  };
+>>>>>>> 7799188370f11b089b8f2d9894c3e30ae39ef6a7
   
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
@@ -83,16 +116,6 @@ var fetchRoverPhotos = (rover, date) => {
     // Call the function to fetch rover photos
     fetchRoverPhotos(selectedRover, selectedDate);
     
-  });
-
-  //datepicker widget
-  $(function () {
-    $('#datepicker').datepicker({
-      changeMonth: true,
-      changeYear: true,
-    });
-  });
-  
-  
+  });  
   // Call the function to fetch Mars weather on page load
   fetchMarsWeather();

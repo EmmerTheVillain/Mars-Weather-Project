@@ -9,29 +9,39 @@
     rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
   />
+<<<<<<< HEAD
     <!--<link rel="stylesheet" href="./assets/css/style.css" />-->
+=======
+    <link rel="stylesheet" href="./assets/style.css" />
+>>>>>>> 7799188370f11b089b8f2d9894c3e30ae39ef6a7
     <title>Mars Weather and Photos</title>
 </head>
 <body>
-    <!-- header section -->
-        <div class ="container">
-            <h1>Mars Weather</h1>
-            <div id="weatherContainer">
-                <p>NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
+    <!-- header/navbar section -->
+    <div class ="container "> <!-- this should be colored orange maybe? -->
+        <div class = "row d-flex">
+            <div class = "card col-4 p-1 m-2 ">
+                <h1>Mars Weather</h1>
+            </div>
+            <div class = " card col-7 p-2 m-2 " id="weatherContainer">
+                <p class = "card-text">NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
             </div>
         </div>
-
+    </div>
+    <!-- main body section -->
     <div class ="container">    
-        <div class="row">
-            <div class="col -3">
+        <div class="row d-flex">
+            <div class="card col-4 p-2 m-2">
                 <h2>Rover Photos</h2>
-                <form id="roverForm">
-                    <label for="roverSelect">Select Rover:</label>
+                <form id="roverForm" class = "m-2 p-2">
+                    <div class="col-5 m-2" >
+                    <label for="roverSelect" >Select Rover:</label>
                     <select id="roverSelect">
                         <option value="curiousity">Curiosity</option>
                         <option value="opportunity">Opportunity</option>
                         <option value="spirit">Spirit</option>
                     </select>
+<<<<<<< HEAD
 
                 <label for="dateInput">Select Date:</label>
                 <input type="date" id="dateInput">
@@ -40,21 +50,42 @@
                 <button type="button" id="historyButton" class="btn btn-primary">History</button>
                  <div id="historyInfo"></div>
                  <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cum qui vel nesciunt esse, unde, architecto voluptatum perspiciatis commodi sunt provident quia pariatur earum cumque odio iste autem veniam consequatur?</P>
+=======
+                </div>
+                <div class = "col-6">
+                    <label for="dateInput">Select Date:</label>
+                    <input type="date" id="dateInput">
+                    <button type="submit" class="btn btn-primary m-2">Get Photos</button>
+                </div>
+>>>>>>> 7799188370f11b089b8f2d9894c3e30ae39ef6a7
                 </form>
-        </div>
-        <div class = "col-9">
-            <h2>Mars Weather for:</h2>
-            <h3>date</h3>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
-        </div>
-    </div> 
-    </div>  
-    <div id="photosContainer"></div>
+                <div class = "card m-2 p-2">
+                <button type="button" id="historyButton" class="btn btn-primary col-4">History</button>
 
-    
+                 <div id="historyInfo" class="col-12"></div>
+                 <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cum qui vel nesciunt esse, unde, architecto voluptatum perspiciatis commodi sunt provident quia pariatur earum cumque odio iste autem veniam consequatur?</P>
+                </div>    
+            </div>
+            <div class = "card col-7 m-2 p-2">
+                <div class = "col-12 text-center p-2 m-2" >
+                    <h2 class = "card-header">Mars Weather for: (date)</h2> <!-- DayJS date here  -->
+                </div>
+                <div><!-- output for weather api content-->
+                    <P class = "card-text col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+                </div>
+                 <div class ="col-6" id="photosContainer"><!-- output for the photos -->
+
+            </div>
+        </div>
+        </div> 
+    </div>  
 </body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 <script src="./assets/script.js"></script>
+=======
+<script src="assets/script.js"></script>
+>>>>>>> 7799188370f11b089b8f2d9894c3e30ae39ef6a7
 </html>
