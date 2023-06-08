@@ -39,36 +39,36 @@ var fetchMarsWeather = () => {
 
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
-    var apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&api_key=bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3`;
-  
-    //fetch of api
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-          var photos = data.photos;
-  
-          photosContainer.innerHTML = '';
-  
-          photos.forEach(photo => {
-              var photoUrl = photo.img_src;
-              var roverName = photo.rover.name;
-              var cameraName = photo.camera.full_name;
-  
-              var photoE1 = document.createElement('img');
-              photoE1.classList.add('photo');
-  
-              var imgE1 = document.createElement('img');
-              imgE1.src = photoUrl;
-              imgE1.alt = '${roverName} - ${cameraName}';
-  
-              photoE1.appendChild(imgE1);
-              photosContainer.appendChild(photoE1);
-          });
-      })
-      .catch(error => {
-        console.log('Error fetching rover photos:', error);
-      });
-  };
+  var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ rover +'/photos?earth_date='+ date +'&api_key='+ api_key;
+
+  //fetch of api
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        var photos = data.photos;
+        photosContainer.innerHTML = '';
+        photos.forEach(photo => {
+            
+            var photoUrl = photo.img_src;
+            var roverName = photo.rover.name;
+            var cameraName = photo.camera.full_name;
+
+            var photoE1 = document.createElement('img');
+            photoE1.classList.add('photo');
+
+            var imgE1 = document.createElement('img');
+            imgE1.src = photoUrl;
+            imgE1.alt = '${roverName} - ${cameraName}';
+            imgE1.classList.add('photo');
+
+            photoE1.appendChild(imgE1);
+            photosContainer.appendChild(imgE1);
+        });
+    })
+    .catch(error => {
+      console.log('Error fetching rover photos:', error);
+    });
+};
   
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
