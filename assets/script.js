@@ -1,4 +1,4 @@
-var api_key = ' bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
+var api_key = 'bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
 
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
