@@ -1,8 +1,9 @@
 :root {
     /* declare a variable with `--` syntax */
-    --dark: #964e0b;
+    --dark: #25211d;
     --dark-orange: rgb(185, 105, 7);  
     --light: #c9f3fa;
+    /* we know its porange, perfect orange */
     --light-porange: #fda553;
 }
 body{
