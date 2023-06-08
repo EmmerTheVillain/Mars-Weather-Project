@@ -1,4 +1,4 @@
-var api_key = 'bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3';
+var apiKey = 'qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA';
 
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
@@ -7,7 +7,7 @@ var dateInputEl = $('#dateInput');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
-  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key=bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3&feedtype=json&ver=1.0';
+  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key=qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA&feedtype=json&ver=1.0';
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -39,7 +39,7 @@ var fetchMarsWeather = () => {
 
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
-    var apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&api_key=bEWNySATtVW69xuiVwa4xRrlCKlufjMQ9apPlhJ3`;
+    var apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${date}&api_key=qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA`;
   
     //fetch of api
     fetch(apiUrl)
@@ -83,16 +83,6 @@ var fetchRoverPhotos = (rover, date) => {
     // Call the function to fetch rover photos
     fetchRoverPhotos(selectedRover, selectedDate);
     
-  });
-
-  //datepicker widget
-  $(function () {
-    $('#dateInput').datepicker({
-      dateFormat: 'yy-mm-dd',
-      maxDate: new Date(),
-    });
-  });
-  
-  
+  });  
   // Call the function to fetch Mars weather on page load
   fetchMarsWeather();
