@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- header section -->
-        <div class ="container d-flex align-items-center bg-danger">
+        <div class ="container d-flex align-items-center"> <!-- this should be colored orange maybe? -->
             <h1>Mars Weather</h1>
             <div id="weatherContainer">
                 <p>NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
@@ -23,9 +23,9 @@
 
     <div class ="container">    
         <div class="row d-flex">
-            <div class="col-4 border border-danger-subtle p-2">
+            <div class="card col-4 border p-2 m-2 ">
                 <h2>Rover Photos</h2>
-                <form id="roverForm">
+                <form id="roverForm" class = "card m-2">
                     <label for="roverSelect">Select Rover:</label>
                     <select id="roverSelect">
                         <option value="curiousity">Curiosity</option>
@@ -36,16 +36,21 @@
                 <label for="dateInput">Select Date:</label>
                 <input type="date" id="dateInput">
                 <button type="submit" class="btn btn-primary">Get Photos</button>
-
+            
+                <div class = "card m-2 p-2">
                 <button type="button" id="historyButton" class="btn btn-primary">History</button>
-                 <div id="historyInfo"></div>
+
+                 <div id="historyInfo" ></div>
                  <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cum qui vel nesciunt esse, unde, architecto voluptatum perspiciatis commodi sunt provident quia pariatur earum cumque odio iste autem veniam consequatur?</P>
-                </form>
+                </div>    
         </div>
-        <div class = "col-8 border border-danger-subtle p-2">
-            <h2>Mars Weather for:</h2>
-            <h3>date</h3>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+        <div class = "justify-center col-7 border border-danger m-2 p-2">
+            <div class = "card col-8 text-center p-2 m-2" >
+                <h2>Mars Weather for: (date)</h2>
+            </div>
+             <div><!-- output for weather api content-->
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+            </div>
         </div>
     </div> 
     </div>  
