@@ -7,7 +7,7 @@ var dateInputEl = $('#dateInput');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
-  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key=qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA&feedtype=json&ver=1.0';
+  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key='+ apiKey +'&feedtype=json&ver=1.0';
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -39,7 +39,7 @@ var fetchMarsWeather = () => {
 
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
-  var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ rover +'/photos?earth_date='+ date +'&api_key='+ api_key;
+  var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ rover +'/photos?earth_date='+ date +'&api_key='+ apiKey;
 
   //fetch of api
   fetch(apiUrl)
@@ -78,8 +78,12 @@ var fetchRoverPhotos = (rover, date) => {
 
     var selectedRover = roverSelect.value;
     var selectedDate = dateInput.value;
-  
-    // Call the function to fetch rover photos
+
+    if(dayjs().isBefore(dayjs(selectedDate))){
+      console.log('Error, wrong date');
+      selectedDate = dayjs().format('YYYY-MM-DD');;
+    }
+
     fetchRoverPhotos(selectedRover, selectedDate);
     
   });  
