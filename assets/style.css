@@ -13,6 +13,9 @@ body{
     background-color: var(--dark-orange);
     color: var(--light)
 }
+.h1 h2 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
