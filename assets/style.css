@@ -9,6 +9,10 @@
 body{
     background-color: var(--dark);
 }
+img {
+    border-radius: 25px;
+    max-width: 100%;
+}
 .card{
     background-color: var(--dark-orange);
     color: var(--light);
