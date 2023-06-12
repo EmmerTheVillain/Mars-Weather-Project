@@ -11,7 +11,7 @@ body{
 }
 .card{
     background-color: var(--dark-orange);
-    color: var(--light)
+    color: var(--light);
 }
 .h1 h2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -22,4 +22,8 @@ body{
 
 #photoButton {
     margin: 5px 0px 0px 0px;
+}
+
+.card-header {
+    color: var(--dark);
 }
