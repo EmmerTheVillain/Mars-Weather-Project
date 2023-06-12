@@ -8,6 +8,8 @@
 }
 body{
     background-color: var(--dark);
+    background-image: url("images/space.jpg");
+    background-size: cover;
 }
 img {
     border-radius: 25px;
