@@ -6,9 +6,13 @@
     /* we know its porange, perfect orange */
     --light-porange: #fda553;
 }
+
 body{
     background-color: var(--dark);
+    background-image: url("images/space.jpg");
+    background-size: cover;
 }
+
 .card{
     background-color: var(--dark-orange);
     color: var(--light);
@@ -16,14 +20,11 @@ body{
 .h1 h2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 .p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #photoButton {
     margin: 5px 0px 0px 0px;
-}
-
-.card-header {
-    color: var(--dark);
 }
