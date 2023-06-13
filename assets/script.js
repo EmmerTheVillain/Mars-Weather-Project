@@ -53,7 +53,7 @@ var fetchRoverPhotos = (rover, date) => {
         photosContainer.innerHTML = '';
 
         // Limit the photos to 10 for example
-        var limitedPhotos = photos.slice(0, 5);
+        var limitedPhotos = rover.photos.slice(0, 5);
 
         limitedPhotos.forEach((photo, index) => {
             var photoUrl = photo.img_src;
@@ -68,7 +68,7 @@ var fetchRoverPhotos = (rover, date) => {
             imgE1.alt = `${roverName} - ${cameraName}`;
             imgE1.classList.add('photo'); // move the 'photo' class to the img element
             slideE1.appendChild(imgE1);
-            photosContainer.appendChild(imgE1); // append img directly to photosContainer
+            photosContainer.appendChild(slideE1); // append img directly to photosContainer
         });
         showSlide(currentPhotoIndex);
     })
