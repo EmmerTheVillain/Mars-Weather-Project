@@ -12,6 +12,7 @@ var currentPhotoIndex = 0;
 var fetchMarsWeather = () => {
   var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key='+ apiKey +'&feedtype=json&ver=1.0';
 
+  //fetch for weather api
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
@@ -35,10 +36,11 @@ var fetchMarsWeather = () => {
             weatherDetailE1.appendChild(valueE1);
             weatherContainer.appendChild(weatherDetailE1);
         }
-
+      //sets latestSol to the date input
         var date = dayjs(latestSol).format('MMMM D, YYYY');
         weatherDate.textContent = date;
     })
+    //error log output
     .catch(error => {
       console.log('Error fetching Mars weather:', error);
     });
@@ -48,6 +50,7 @@ var fetchMarsWeather = () => {
 var fetchRoverPhotos = (rover, date) => {
   var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?earth_date=' + date + '&api_key=' + apiKey;
 
+  //fetch api for photo spi
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
@@ -55,7 +58,7 @@ var fetchRoverPhotos = (rover, date) => {
         photosContainer.innerHTML = '';
 
         // Limit the photos to 10 for example
-        var limitedPhotos = rover.photos.slice(0, 5);
+        var limitedPhotos = roverPhotos.slice(0, 5);
 
         limitedPhotos.forEach((photo, index) => {
             var photoUrl = photo.img_src;
