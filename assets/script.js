@@ -11,7 +11,6 @@ var currentPhotoIndex = 0;
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
   var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key='+ apiKey +'&feedtype=json&ver=1.0';
-
   //fetch for weather api
   fetch(apiUrl)
     .then(response => response.json())
@@ -19,7 +18,6 @@ var fetchMarsWeather = () => {
         var latestSol = data.sol_keys[data.sol_keys.length -1];
         var weather = data[latestSol];
         weatherContainer.innerHTML = '';
-
         for (var [key, value] of Object.entries(weather)) {
             var weatherDetailE1 = document.createElement('div');
             weatherDetailE1.classList.add('weather-details');
