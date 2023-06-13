@@ -4,6 +4,7 @@ var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
 var dateInputEl = $('#dateInput');
+var hisBtn = $('.historyCard');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
@@ -68,6 +69,45 @@ var fetchRoverPhotos = (rover, date) => {
     });
 };
 
+var saveHistory = (rover, date) =>{  
+
+  const element = {
+    rover : rover,
+    date : date
+  };
+
+  var history = JSON.parse(localStorage.getItem('history'));
+  if(history == null)
+    history = Array();
+  else{
+    //prevent save repeted elements 
+    for (let i = 0; i < history.length; i++) {
+      if((history[i].rover == rover) && (history[i].date == date)){
+        return;
+      }
+    }
+  }
+  //save element in local storage
+  history.push(element);
+  localStorage.setItem('history', JSON.stringify(history));
+  renderHistory;
+}
+
+var renderHistory = () => {
+var history = JSON.parse(localStorage.getItem('history'));
+container = $('.historyCard');
+
+container.empty();
+
+if(history == null)
+    history = Array();
+
+for(var i = 0; i < history.length; i++){
+    var historyELement = $('<button type="button" id="historyButton" class="btn btn-primary col-4 m-2"></button>');
+    historyELement.text((history[i].rover + ' (' + history[i].date + ')'));
+    container.append(historyELement);
+}
+}
   
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
@@ -83,9 +123,17 @@ var fetchRoverPhotos = (rover, date) => {
       console.log('Error, wrong date');
       selectedDate = dayjs().format('YYYY-MM-DD');;
     }
-
+    
+    saveHistory(selectedRover, selectedDate);
     fetchRoverPhotos(selectedRover, selectedDate);
     
   });  
+
+  hisBtn.on('click', '#historyButton', function (event) {
+    var history = JSON.parse(localStorage.getItem('history'));
+    historyELement = history[$(this).index()];
+    fetchRoverPhotos(historyELement.rover, historyELement.date);
+  });
   // Call the function to fetch Mars weather on page load
+  renderHistory();
   fetchMarsWeather();
