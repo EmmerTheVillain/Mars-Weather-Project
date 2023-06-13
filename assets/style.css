@@ -12,13 +12,22 @@ body{
     background-image: url("images/space.jpg");
     background-size: cover;
 }
+img {
+    border-radius: 25px;
+    max-width: 100%;
+
+}
 
 .card{
     background-color: var(--dark-orange);
     color: var(--light);
 }
+.card-header{
+    color: var(--light)
+}
 .h1 h2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--light);
 }
 
 .p {

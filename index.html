@@ -14,12 +14,12 @@
 </head>
 <body>
     <!-- header/navbar section -->
-    <div class ="container "> <!-- this should be colored orange maybe? -->
+    <div class ="container ">
         <div class = "row d-flex justify-content-stretch">
-            <div class = "card col-4 p-1 m-2 mt-5 justify-content-center">
+            <div class = "card col-lg-4 col-sm-12  p-1 m-2 mt-5 justify-content-center">
                 <h1>Mars Weather</h1>
             </div>
-            <div class = " card col-7 p-2 m-2 mt-5" id="weatherContainer">
+            <div class = " card col-lg-7 col-sm-12 p-2 m-2 mt-5" id="weatherContainer">
                 <p class = "card-text">NASA's Insight Mars lander takes measurements on the surface of Mars. It is able to measure the temperature, wind, and the pressure. The data that is available is a summary of the each of the last seven available Sols.</p>
             </div>
         </div>
@@ -27,7 +27,7 @@
     <!-- main body section -->
     <div class ="container">    
         <div class="row d-flex">
-            <div class="card col-4 p-2 m-2">
+            <div class="card col-lg-4 col-sm-12 p-2 m-2">
                 <h2>Rover Photos</h2>
                 <form id="roverForm" class = "m-2 p-2">
                     <div class="col-5" >
@@ -51,15 +51,21 @@
                  <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cum qui vel nesciunt esse, unde, architecto voluptatum perspiciatis commodi sunt provident quia pariatur earum cumque odio iste autem veniam consequatur?</P>
                 </div>    
             </div>
-            <div class = "card col-7 m-2 p-2">
+            <div class = "card col-lg-7 col-sm-12 m-2 p-2">
                 <div class = "col-12 text-center p-2 m-2" >
-                    <h2 class = "card-header">Mars Weather for: (date)</h2> <!-- DayJS date here  -->
+                    <h2 class = "card-header header-light">Mars Weather for: (date)</h2> <!-- DayJS date here  -->
                 </div>
                 <div><!-- output for weather api content-->
                     <P class = "card-text col-6 p-2 m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
                 </div>
                  <div class ="col-6" id="photosContainer"><!-- output for the photos -->
-
+                    <div class="slideshow-container">
+                        <div class="slide">
+                            <img src="" alt="" class="photo">
+                        </div>
+                        <button class="next" id="nextButton">&#10094;</button>
+                        <button class="prev" id="prevButton">&#10095;</button>
+                    </div>
             </div>
         </div>
         </div> 
