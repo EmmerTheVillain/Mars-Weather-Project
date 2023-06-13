@@ -16,29 +16,32 @@ var fetchMarsWeather = () => {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        var latestSol = data.sol_keys[data.sol_keys.length -1];
-        var weather = data[latestSol];
+        var sol = data.sol_keys[data.sol_keys.length -1];
+        var weather = data[sol];
         weatherContainer.innerHTML = '';
 
-        for (var [key, value] of Object.entries(weather)) {
-            var weatherDetailE1 = document.createElement('div');
-            weatherDetailE1.classList.add('weather-details');
+        if(weather){
+          for (var [key, value] of Object.entries(weather)) {
+              var weatherDetailE1 = document.createElement('div');
+              weatherDetailE1.classList.add('weather-details');
 
-            var labelE1 = document.createElement('span');
-            labelE1.classList.add('weather-label');
-            labelE1.textContent = `${key}`;
+              var labelE1 = document.createElement('span');
+              labelE1.classList.add('weather-label');
+              labelE1.textContent = `${key}`;
 
-            var valueE1 = document.createElement('span');
-            valueE1.classList.add('weather-value');
-            valueE1.textContent = value;
+              var valueE1 = document.createElement('span');
+              valueE1.classList.add('weather-value');
+              valueE1.textContent = value;
 
-            weatherDetailE1.appendChild(labelE1);
-            weatherDetailE1.appendChild(valueE1);
-            weatherContainer.appendChild(weatherDetailE1);
+              weatherDetailE1.appendChild(labelE1);
+              weatherDetailE1.appendChild(valueE1);
+              weatherContainer.appendChild(weatherDetailE1);
+          }
+          var date = dayjs(sol).format('MMMM D, YYYY'); // Updated this line
+          weatherDate.textContent = date;
+        }  else {
+          weatherContainer.innerHTML = 'No weather data available for this sol.'
         }
-      //sets latestSol to the date input
-        var date = dayjs(latestSol).format('MMMM D, YYYY');
-        weatherDate.textContent = date;
     })
     //error log output
     .catch(error => {
