@@ -53,28 +53,27 @@ var fetchRoverPhotos = (rover, date) => {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        var roverPhotos = data.photos;
-        photosContainer.innerHTML = '';
+      var roverPhotos = data.photos;
+      document.querySelectorAll('.slide').innerHTML = '';
 
-        // Limit the photos to 10 for example
-        var limitedPhotos = roverPhotos.slice(0, 5);
+      // Limit the photos to 10 for example
+      var roverPhotos = roverPhotos.slice(0, 5);
+      var photoUrls = new Array();
 
-        limitedPhotos.forEach((photo, index) => {
-            var photoUrl = photo.img_src;
-            var roverName = photo.rover.name;
-            var cameraName = photo.camera.full_name;
+      roverPhotos.forEach((photo, index) => {
 
-            var slideE1 = document.createElement('div');
-            slideE1.classList.add('slide');
+          const element = {
+              photoUrl : photo.img_src,
+              roverName : photo.rover.name,
+              cameraName : photo.camera.full_name
+            };
 
-            var imgE1 = document.createElement('img');
-            imgE1.src = photoUrl;
-            imgE1.alt = `${roverName} - ${cameraName}`;
-            imgE1.classList.add('photo'); // move the 'photo' class to the img element
-            slideE1.appendChild(imgE1);
-            photosContainer.appendChild(slideE1); // append img directly to photosContainer
-        });
-        showSlide(currentPhotoIndex);
+            photoUrls.push(element);
+
+      });
+      currentPhotoIndex = 0;
+      localStorage.setItem('photoUrls', JSON.stringify(photoUrls));
+      showSlide(currentPhotoIndex);
     })
     .catch(error => {
       console.log('Error fetching rover photos:', error);
@@ -122,15 +121,19 @@ var renderHistory = () => {
 }
   
 var showSlide = (index) => {
-  var slides = document.querySelectorAll('.slide');
+  document.querySelectorAll('.slide').innerHTML = '';
 
-  slides.forEach((slide, i) => {
-    if (i === index) {
-      slide.style.display = 'block';
-    } else {
-      slide.style.display = 'none';
-    }
-  });
+  var slideE1 = document.createElement('div');
+  slideE1.classList.add('slide');
+  var imgE1 = document.createElement('img');
+  var photoUrls = JSON.parse(localStorage.getItem('photoUrls'));
+
+  imgE1.src = photoUrls[index].photoUrl;
+  imgE1.alt = `${photoUrls[index].roverName} - ${photoUrls[index].cameraName}`;
+
+  imgE1.classList.add('photo'); // move the 'photo' class to the img element
+  slideE1.appendChild(imgE1);
+  photosContainer.replaceChild(slideE1, photosContainer.childNodes[0]); // append img directly to photosContainer
 };
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
@@ -160,26 +163,21 @@ var showSlide = (index) => {
 
   document.getElementById('nextButton').addEventListener('click', () => {
     currentPhotoIndex++;
-    var slides = document.querySelectorAll('.slide');
-
-    if (currentPhotoIndex >= slides.length) {
+    var photoUrls = JSON.parse(localStorage.getItem('photoUrls'));
+    if (currentPhotoIndex == photoUrls.length) {
       currentPhotoIndex = 0;
     }
-
     showSlide(currentPhotoIndex);
-
   });
 
   document.getElementById('prevButton').addEventListener('click', () => {
     currentPhotoIndex--;
-    var slides = document.querySelectorAll('.slide');
-
+    console.log(currentPhotoIndex);
+    var photoUrls = JSON.parse(localStorage.getItem('photoUrls'));
     if (currentPhotoIndex < 0) {
-      currentPhotoIndex = slides.length -1;
+      currentPhotoIndex = photoUrls.length -1;
     }
-
     showSlide(currentPhotoIndex);
-
   });
   // Call the function to fetch Mars weather on page load
   renderHistory();
