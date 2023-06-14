@@ -17,6 +17,7 @@ var fetchMarsWeather = () => {
     .then(data => {
         var latestSol = data.sol_keys[data.sol_keys.length -1];
         var weather = data[latestSol];
+        console.log(data);
         weatherContainer.innerHTML = '';
         for (var [key, value] of Object.entries(weather)) {
             var weatherDetailE1 = document.createElement('div');
@@ -101,7 +102,7 @@ var saveHistory = (rover, date) =>{
   //save element in local storage
   history.push(element);
   localStorage.setItem('history', JSON.stringify(history));
-  renderHistory;
+  renderHistory();
 }
 
 var renderHistory = () => {
