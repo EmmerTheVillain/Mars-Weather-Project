@@ -1,5 +1,6 @@
 var apiKey = 'qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA';
 
+var weatherInfo = document.getElementById('WeatherInfo');
 var weatherContainer = document.getElementById('weatherContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
@@ -17,9 +18,8 @@ var fetchMarsWeather = () => {
     .then(data => {
         var latestSol = data.sol_keys[data.sol_keys.length -1];
         var weather = data[latestSol];
-        console.log(data);
-        weatherContainer.innerHTML = '';
-        for (var [key, value] of Object.entries(weather)) {
+        if(weather && typeof weather === 'object') {
+          for (var [key, value] of Object.entries(weather)) {
             var weatherDetailE1 = document.createElement('div');
             weatherDetailE1.classList.add('weather-details');
 
@@ -33,7 +33,10 @@ var fetchMarsWeather = () => {
 
             weatherDetailE1.appendChild(labelE1);
             weatherDetailE1.appendChild(valueE1);
-            weatherContainer.appendChild(weatherDetailE1);
+            weatherInfo.appendChild(weatherDetailE1);
+          }
+        } else {
+          console.log('No weather data for Sol ${latestSol');
         }
       //sets latestSol to the date input
         var date = dayjs(latestSol).format('MMMM D, YYYY');
