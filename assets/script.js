@@ -153,12 +153,11 @@ var showSlide = (index) => {
       console.log('Error, wrong date');
       selectedDate = dayjs().format('YYYY-MM-DD');
       $('#exampleModal').modal('show');
-      errorMessage.textContent = 'The date entered does not provide a valid response.'
-    }
-    
+      errorMessage.textContent = 'The date entered does not provide a valid response.';
+    }  else{
     saveHistory(selectedRover, selectedDate);
     fetchRoverPhotos(selectedRover, selectedDate);
-    
+    }
   });  
 
   hisBtn.on('click', '#historyButton', function (event) {
