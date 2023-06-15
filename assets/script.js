@@ -190,4 +190,4 @@ var showSlide = (index) => {
   });
   // Call the function to fetch Mars weather on page load
   renderHistory();
-  fetchMarsWeather();
+  fetchSpaceEvents();
