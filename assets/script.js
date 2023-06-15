@@ -8,6 +8,7 @@ var dateInputEl = $('#dateInput');
 var hisBtn = $('.historyCard');
 var weatherDate = document.getElementById('weatherDate');
 var currentPhotoIndex = 0;
+var errorMessage = document.getElementById('errorMessage');
 
 // Function to fetch Mars weather data
 var fetchMarsWeather = () => {
@@ -150,7 +151,9 @@ var showSlide = (index) => {
 
     if(dayjs().isBefore(dayjs(selectedDate))){
       console.log('Error, wrong date');
-      selectedDate = dayjs().format('YYYY-MM-DD');;
+      selectedDate = dayjs().format('YYYY-MM-DD');
+      $('#exampleModal').modal('show');
+      errorMessage.textContent = 'The date entered does not provide a valid response.'
     }
     
     saveHistory(selectedRover, selectedDate);
