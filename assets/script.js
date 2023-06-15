@@ -58,8 +58,7 @@ var fetchRoverPhotos = (rover, date) => {
     .then(response => response.json())
     .then(data => {
       var roverPhotos = data.photos;
-      document.querySelectorAll('.slide').innerHTML = '';
-
+      document.querySelectorAll('.carousel')[0].classList.remove("Hide");
       // Limit the photos to 10 for example
       var roverPhotos = roverPhotos.slice(0, 5);
       var photoUrls = new Array();
@@ -80,6 +79,7 @@ var fetchRoverPhotos = (rover, date) => {
       showSlide(currentPhotoIndex);
     })
     .catch(error => {
+      document.querySelectorAll('.carousel')[0].classList.add("Hide");
       console.log('Error fetching rover photos:', error);
     });
 };
@@ -125,19 +125,17 @@ var renderHistory = () => {
 }
   
 var showSlide = (index) => {
-  document.querySelectorAll('.slide').innerHTML = '';
-
-  var slideE1 = document.createElement('div');
-  slideE1.classList.add('slide');
+  var slideE1 = document.querySelectorAll('.slide');
   var imgE1 = document.createElement('img');
   var photoUrls = JSON.parse(localStorage.getItem('photoUrls'));
 
   imgE1.src = photoUrls[index].photoUrl;
   imgE1.alt = `${photoUrls[index].roverName} - ${photoUrls[index].cameraName}`;
-
-  imgE1.classList.add('photo'); // move the 'photo' class to the img element
-  slideE1.appendChild(imgE1);
-  photosContainer.replaceChild(slideE1, photosContainer.childNodes[0]); // append img directly to photosContainer
+  imgE1.classList.add('photo'); 
+  imgE1.classList.add('d-block');
+  imgE1.classList.add('w-100');// move the 'photo' class to the img element
+  
+  slideE1[0].replaceChild(imgE1, slideE1[0].childNodes[0]); // append img directly to photosContainer
 };
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {

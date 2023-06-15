@@ -67,24 +67,35 @@
                  <div id="historyInfo" class="historyCard col-12"></div>
                 </div>    
             </div>
-            <div class = "card col-lg-7 col-sm-12 m-2 p-2">
-                <div class = "col-12 text-center p-2 m-2" >
-                    <h2 class = "card-header header-light" id="weatherInfo">Mars Weather for: <span id="weatherDate"></span></h2> <!-- DayJS date here  -->
-                </div>
-                <div><!-- output for weather api content-->
-                    <P class = "card-text col-6 p-2 m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
-                </div>
-                 <div class ="col-6" id="photosContainer"><!-- output for the photos -->
-                    <div class="slideshow-container">
-                        <div class="slide">
-                            <img src="" alt="" class="photo">
-                        </div>
-                        <button class="next" id="nextButton">&#10094;</button>
-                        <button class="prev" id="prevButton">&#10095;</button>
+            <div class = "card col-12 col-sm-12 col-lg-7 m-2 p-2">
+                <div class="row justify-content-center">
+
+                    <div class = "col-12 text-center p-2 m-2" >
+                        <h2 class = "card-header header-light" id="weatherInfo">Mars Weather for: <span id="weatherDate"></span></h2> <!-- DayJS date here  -->
                     </div>
+                    <div class = "col-12 text-center p-2 m-2"><!-- output for weather api content-->
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+                    </div>
+
+                    <div id="carouselExampleControls" class="carousel slide card col-10 col-sm-10 col-lg-10 Hide" id="photosContainer" data-bs-ride="carousel">
+                        <div class="carousel-inner slideshow-container">
+                        <div class="carousel-item active slide">
+                            <img src="" class="d-block w-100 photo" alt="">
+                        </div>
+                        </div>
+                        <button class="carousel-control-prev prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"  id="prevButton">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id="nextButton">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-        </div> 
     </div>  
 </body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
