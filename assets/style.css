@@ -1,10 +1,9 @@
 :root {
     /* declare a variable with `--` syntax */
     --dark: #25211d;
-    --dark-orange: rgb(185, 105, 7);  
+    --dark-blue: rgb(0, 21, 90);  
     --light: #c9f3fa;
-    /* we know its porange, perfect orange */
-    --light-porange: #fda553;
+    --light-purple: #693bbd;
 }
 
 body{
@@ -14,13 +13,14 @@ body{
 }
 img {
     border-radius: 25px;
-    width: 70%;
+    max-width: 100%;
 
 }
 
 .card{
-    background-color: var(--dark-orange);
+    background-color: var(--light-purple);
     color: var(--light);
+    box-shadow: var(--dark-blue);
 }
 .card-header{
     color: var(--light)
@@ -36,8 +36,4 @@ img {
 
 #photoButton {
     margin: 5px 0px 0px 0px;
-}
-
-.Hide{
-    display: none;
 }
