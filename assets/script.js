@@ -10,45 +10,39 @@ var errorMessage = document.getElementById('errorMessage');
 
 // Function to fetch Mars weather data
 var fetchSpaceEvents = () => {
-  var selectedDate = dateInputEl.val();
-  var apiUrl = `https://api.nasa.gov/DONKI/GST?startDate=${selectedDate}&endDate=${selectedDate}&api_key=${apiKey}`;
+  var apiUrl = 'http://api.open-notify.org/astros.json';
 
-  // Fetch for space events API
+  // Fetch for astronauts API
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      var events = data;
-      var spaceInfo = document.getElementById('spaceInfo')
-      spaceContainer.innerHTML = '';
-
-      if (events && events.length > 0) {
-        events.forEach(event => {
-          var eventE1 = document.createElement('div');
-          eventE1.classList.add('event');
-
-          var typeE1 = document.createElement('span');
-          typeE1.classList.add('event-type');
-          typeE1.textContent = event.eventType;
-
-          var dateE1 = document.createElement('span');
-          dateE1.classList.add('event-date');
-          dateE1.textContent = event.startDate;
-
-          var descriptionE1 = document.createElement('span');
-          descriptionE1.classList.add('event-description');
-          descriptionE1.textContent = event.notes;
-
-          eventE1.appendChild(typeE1);
-          eventE1.appendChild(dateE1);
-          eventE1.appendChild(descriptionE1);
-          spaceInfo.appendChild(eventE1);
-        });
-      } else {
-        console.log('No space events found');
-      }
+      var astronauts = data.people;
+      
+      var spaceInfo = document.getElementById('spaceInfo');
+      spaceInfo.innerHTML = '';
+      
+      var astronautsE1 = document.createElement('div');
+      astronautsE1.classList.add('astronauts');
+      
+      astronauts.forEach(astronaut => {
+        var astronautE1 = document.createElement('div');
+        astronautE1.classList.add('astronaut');
+        
+        var nameE1 = document.createElement('span');
+        nameE1.textContent = 'Name: ' + astronaut.name;
+        
+        var craftE1 = document.createElement('span');
+        craftE1.textContent = 'Craft: ' + astronaut.craft;
+        
+        astronautE1.appendChild(nameE1);
+        astronautE1.appendChild(craftE1);
+        astronautsE1.appendChild(astronautE1);
+      });
+      
+      spaceInfo.appendChild(astronautsE1);
     })
     .catch(error => {
-      console.log('Error fetching space events:', error);
+      console.log('Error fetching astronauts:', error);
     });
 };
 
