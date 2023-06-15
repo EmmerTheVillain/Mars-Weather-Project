@@ -1,6 +1,5 @@
 var apiKey = 'qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA';
 
-var spaceInfo = document.getElementById('spaceInfo');
 var spaceContainer = document.getElementById('spaceContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
@@ -11,15 +10,15 @@ var errorMessage = document.getElementById('errorMessage');
 
 // Function to fetch Mars weather data
 var fetchSpaceEvents = () => {
-  var startDate = dateInputEl.val();
-  var endDate = dateInputEl.val();
-  var apiUrl = `https://api.nasa.gov/DONKI/GST?startDate=${startDate}&endDate=${endDate}&api_key=${apiKey}`;
+  var selectedDate = dateInputEl.val();
+  var apiUrl = `https://api.nasa.gov/DONKI/GST?startDate=${selectedDate}&endDate=${selectedDate}&api_key=${apiKey}`;
 
   // Fetch for space events API
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       var events = data;
+      var spaceInfo = document.getElementById('spaceInfo')
       spaceContainer.innerHTML = '';
 
       if (events && events.length > 0) {
