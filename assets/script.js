@@ -1,51 +1,55 @@
 var apiKey = 'qHqc0M7bu2zPLS268h6g49uEUPPzQ6LT13FYybRA';
 
-var weatherInfo = document.getElementById('WeatherInfo');
-var weatherContainer = document.getElementById('weatherContainer');
+var spaceInfo = document.getElementById('spaceInfo');
+var spaceContainer = document.getElementById('spaceContainer');
 var roverForm = document.getElementById('roverForm');
 var photosContainer = document.getElementById('photosContainer');
 var dateInputEl = $('#dateInput');
 var hisBtn = $('.historyCard');
-var weatherDate = document.getElementById('weatherDate');
 var currentPhotoIndex = 0;
 var errorMessage = document.getElementById('errorMessage');
 
 // Function to fetch Mars weather data
-var fetchMarsWeather = () => {
-  var apiUrl = 'https://api.nasa.gov/insight_weather/?api_key='+ apiKey +'&feedtype=json&ver=1.0';
-  //fetch for weather api
+var fetchSpaceEvents = () => {
+  var startDate = dateInputEl.val();
+  var endDate = dateInputEl.val();
+  var apiUrl = `https://api.nasa.gov/DONKI/GST?startDate=${startDate}&endDate=${endDate}&api_key=${apiKey}`;
+
+  // Fetch for space events API
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        var latestSol = data.sol_keys[data.sol_keys.length -1];
-        var weather = data[latestSol];
-        if(weather && typeof weather === 'object') {
-          for (var [key, value] of Object.entries(weather)) {
-            var weatherDetailE1 = document.createElement('div');
-            weatherDetailE1.classList.add('weather-details');
+      var events = data;
+      spaceContainer.innerHTML = '';
 
-            var labelE1 = document.createElement('span');
-            labelE1.classList.add('weather-label');
-            labelE1.textContent = `${key}`;
+      if (events && events.length > 0) {
+        events.forEach(event => {
+          var eventE1 = document.createElement('div');
+          eventE1.classList.add('event');
 
-            var valueE1 = document.createElement('span');
-            valueE1.classList.add('weather-value');
-            valueE1.textContent = value;
+          var typeE1 = document.createElement('span');
+          typeE1.classList.add('event-type');
+          typeE1.textContent = event.eventType;
 
-            weatherDetailE1.appendChild(labelE1);
-            weatherDetailE1.appendChild(valueE1);
-            weatherInfo.appendChild(weatherDetailE1);
-          }
-        } else {
-          console.log('No weather data for Sol ${latestSol');
-        }
-      //sets latestSol to the date input
-        var date = dayjs(latestSol).format('MMMM D, YYYY');
-        weatherDate.textContent = date;
+          var dateE1 = document.createElement('span');
+          dateE1.classList.add('event-date');
+          dateE1.textContent = event.startDate;
+
+          var descriptionE1 = document.createElement('span');
+          descriptionE1.classList.add('event-description');
+          descriptionE1.textContent = event.notes;
+
+          eventE1.appendChild(typeE1);
+          eventE1.appendChild(dateE1);
+          eventE1.appendChild(descriptionE1);
+          spaceInfo.appendChild(eventE1);
+        });
+      } else {
+        console.log('No space events found');
+      }
     })
-    //error log output
     .catch(error => {
-      console.log('Error fetching Mars weather:', error);
+      console.log('Error fetching space events:', error);
     });
 };
 
