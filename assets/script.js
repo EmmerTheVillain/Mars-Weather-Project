@@ -46,6 +46,38 @@ var fetchSpaceEvents = () => {
     });
 };
 
+var trackISSLocation = () => {
+  var apiUrl = 'http://api.open-notify.org/iss-now.json';
+
+    // Fetch for ISS location API
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      var location = data.iss_position;
+      var latitude = location.latitude;
+      var longitude = location.longitude;
+
+      var locationInfo = document.getElementById('locationInfo');
+      locationInfo.innerHTML = '';
+
+      var coordinatesE1 = document.createElement('div');
+      coordinatesE1.classList.add('coordinates');
+
+      var latitudeE1 = document.createElement('span');
+      latitudeE1.textContent = 'Latitude: ' + latitude;
+
+      var longitudeE1 = document.createElement('span');
+      longitudeE1.textContent = 'Longitude: ' + longitude;
+
+      coordinatesE1.appendChild(latitudeE1);
+      coordinatesE1.appendChild(longitudeE1);
+      locationInfo.appendChild(coordinatesE1);
+    })
+    .catch(error => {
+      console.log('Error fetching ISS location:', error);
+    });
+};  
+
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
   var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?earth_date=' + date + '&api_key=' + apiKey;
