@@ -165,7 +165,7 @@ var renderHistory = () => {
       historyELement.text((history[i].rover + ' (' + history[i].date + ')'));
       container.append(historyELement);
 
-    if (i >= 3){
+   if (i >= 3){
     endloop;
   }
   }
@@ -230,6 +230,7 @@ var showSlide = (index) => {
     showSlide(currentPhotoIndex);
   });
   // Call the function to fetch Mars weather on page load
-  renderHistory();
+  
   fetchSpaceEvents();
   trackISSLocation();
+  renderHistory();
