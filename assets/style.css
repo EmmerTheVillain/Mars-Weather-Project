@@ -22,8 +22,9 @@ img {
     color: var(--light);
     box-shadow: var(--dark-blue);
 }
-.card-header{
-    color: var(--light)
+#carouselExampleControls {
+    margin-top: 20px;
+    visibility: hidden;
 }
 .h1 h2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

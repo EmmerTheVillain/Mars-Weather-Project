@@ -68,6 +68,21 @@
                     <input type="date" id="dateInput">
                     <button type="submit" class="btn btn-primary" id="photoButton">Get Photos</button>
                 </div>
+                <div id="carouselExampleControls" class="carousel slide card col-10 col-sm-10 col-lg-10 Hide" id="photosContainer" data-bs-ride="carousel">
+                    <div class="carousel-inner slideshow-container">
+                    <div class="carousel-item active slide">
+                        <img src="" class="d-block w-100 photo" alt="">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"  id="prevButton">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id="nextButton">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
                 </form>
                 <div class = "card m-2 p-2">
                  <div id="historyInfo" class="historyCard col-12"></div>
@@ -83,21 +98,6 @@
                         <P id="spaceInfo"></P>
                     </div>
 
-                    <div id="carouselExampleControls" class="carousel slide card col-10 col-sm-10 col-lg-10 Hide" id="photosContainer" data-bs-ride="carousel">
-                        <div class="carousel-inner slideshow-container">
-                        <div class="carousel-item active slide">
-                            <img src="" class="d-block w-100 photo" alt="">
-                        </div>
-                        </div>
-                        <button class="carousel-control-prev prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"  id="prevButton">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id="nextButton">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
                     <div class = "col-12 p-2 m-2" id="map">
 
                     </div>
