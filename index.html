@@ -9,7 +9,13 @@
     rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
   />
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
     <link rel="stylesheet" href="./assets/style.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
     <title>Space Explorer</title>
 </head>
 <body>
@@ -73,8 +79,8 @@
                     <div class = "col-12 text-center p-2 m-2" >
                         <h2 class = "card-header header-light" id="weatherInfo">People in space: <span id="weatherDate"></span></h2> <!-- DayJS date here  -->
                     </div>
-                    <div class = "col-12 text-center p-2 m-2"><!-- output for weather api content-->
-                        <P id="spaceInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ut quibusdam suscipit quasi tempora libero voluptas veritatis? Consectetur, expedita necessitatibus, nostrum iusto est tempora enim, assumenda quos cumque vel fugiat!</P>
+                    <div class = "col-12 text-center p-2 m-2"><!-- output for mars picture api content-->
+                        <P id="spaceInfo"></P>
                     </div>
 
                     <div id="carouselExampleControls" class="carousel slide card col-10 col-sm-10 col-lg-10 Hide" id="photosContainer" data-bs-ride="carousel">
@@ -92,6 +98,9 @@
                         <span class="visually-hidden">Next</span>
                         </button>
                     </div>
+                    <div class = "col-12 p-2 m-2" id="map">
+
+                    </div>
                     
                 </div>
             </div>
@@ -101,5 +110,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+
 <script src="./assets/script.js"></script>
 </html>

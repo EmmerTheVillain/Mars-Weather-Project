@@ -32,7 +32,7 @@ var fetchSpaceEvents = () => {
         nameE1.textContent = 'Name: ' + astronaut.name;
         
         var craftE1 = document.createElement('span');
-        craftE1.textContent = 'Craft: ' + astronaut.craft;
+        craftE1.textContent = ' Craft: ' + astronaut.craft;
         
         astronautE1.appendChild(nameE1);
         astronautE1.appendChild(craftE1);
@@ -48,17 +48,19 @@ var fetchSpaceEvents = () => {
 
 var trackISSLocation = () => {
   var apiUrl = 'http://api.open-notify.org/iss-now.json';
-
+  
     // Fetch for ISS location API
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       var location = data.iss_position;
-      var latitude = location.latitude;
-      var longitude = location.longitude;
-
+      var latitude = data.iss_position.latitude;
+      var longitude = data.iss_position.longitude;
+      console.log(latitude);
+      console.log(longitude);
       var locationInfo = document.getElementById('locationInfo');
-      locationInfo.innerHTML = '';
+      // locationInfo.innerHTML = '';
 
       var coordinatesE1 = document.createElement('div');
       coordinatesE1.classList.add('coordinates');
@@ -72,11 +74,23 @@ var trackISSLocation = () => {
       coordinatesE1.appendChild(latitudeE1);
       coordinatesE1.appendChild(longitudeE1);
       locationInfo.appendChild(coordinatesE1);
+      L.marker([latitude, longitude]).addTo(map);
     })
     .catch(error => {
       console.log('Error fetching ISS location:', error);
     });
 };  
+var map = L.map('map', {
+  center: [0,0],
+  zoom: 1
+});
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 5,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+
 
 //function to fetch photos from rover api
 var fetchRoverPhotos = (rover, date) => {
@@ -214,3 +228,4 @@ var showSlide = (index) => {
   // Call the function to fetch Mars weather on page load
   renderHistory();
   fetchSpaceEvents();
+  trackISSLocation();
