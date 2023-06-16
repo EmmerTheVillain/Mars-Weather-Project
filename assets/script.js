@@ -164,6 +164,10 @@ var renderHistory = () => {
       var historyELement = $('<button type="button" id="historyButton" class="btn btn-primary col-4 m-2"></button>');
       historyELement.text((history[i].rover + ' (' + history[i].date + ')'));
       container.append(historyELement);
+
+    if (i >= 3){
+    endloop;
+  }
   }
 }
   
