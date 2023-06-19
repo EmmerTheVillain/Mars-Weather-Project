@@ -18,7 +18,7 @@ var fetchSpaceEvents = () => {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      var astronauts = data.people;
+      var astronauts = JSON.parse(data.contents).people;
       
       var spaceInfo = document.getElementById('spaceInfo');
       spaceInfo.innerHTML = '';
@@ -118,6 +118,7 @@ var fetchRoverPhotos = (rover, date) => {
 };
 
 var saveHistory = (rover, date) =>{  
+
   const element = {
     rover : rover,
     date : date
@@ -129,8 +130,7 @@ var saveHistory = (rover, date) =>{
   else{
     //prevent save repeted elements 
     for (let i = 0; i < history.length; i++) {
-      if((history[i].rover === rover) && (history[i].date === date)){
-        console.log(i);
+      if((history[i].rover == rover) && (history[i].date == date)){
         return;
       }
     }
