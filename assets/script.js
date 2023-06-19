@@ -53,11 +53,11 @@ var map = L.map('map', {
 });
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 5,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 var trackISSLocation = () => {
-  var apiUrl = 'http://api.open-notify.org/iss-now.json';
+  var apiUrl = 'https://api.open-notify.org/iss-now.json';
   
     // Fetch for ISS location API
     fetch(apiUrl)
@@ -74,18 +74,12 @@ var trackISSLocation = () => {
       latitudeEl = latitude;
       longitudeEl = longitude;
 
-      // coordinatesE1.appendChild(latitudeE1);
-      // coordinatesE1.appendChild(longitudeE1);
-      // locationInfo.appendChild(coordinatesE1);
       var marker = L.marker([latitudeEl, longitudeEl]).addTo(map);
     })
     .catch(error => {
       console.log('Error fetching ISS location:', error);
     });
 };  
-
-// var marker = L.marker([latitudeEl, longitudeEl]).addTo(map);
-
 
 
 //function to fetch photos from rover api
