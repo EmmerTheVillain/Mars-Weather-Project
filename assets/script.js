@@ -164,6 +164,10 @@ var renderHistory = () => {
       var historyELement = $('<button type="button" id="historyButton" class="btn btn-primary col-4 m-2"></button>');
       historyELement.text((history[i].rover + ' (' + history[i].date + ')'));
       container.append(historyELement);
+
+   if (i >= 3){
+    endloop;
+  }
   }
 }
   
@@ -183,6 +187,8 @@ var showSlide = (index) => {
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
     event.preventDefault();
+
+    carouselExampleControls.removeAttribute("hidden");
   
     var roverSelect = document.getElementById('roverSelect');
     var dateInput = document.getElementById('dateInput');
@@ -226,6 +232,7 @@ var showSlide = (index) => {
     showSlide(currentPhotoIndex);
   });
   // Call the function to fetch Mars weather on page load
-  renderHistory();
+  
   fetchSpaceEvents();
   trackISSLocation();
+  renderHistory();
