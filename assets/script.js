@@ -7,10 +7,12 @@ var dateInputEl = $('#dateInput');
 var hisBtn = $('.historyCard');
 var currentPhotoIndex = 0;
 var errorMessage = document.getElementById('errorMessage');
+var latitudeEl 
+var longitudeEl
 
 // Function to fetch Mars weather data
 var fetchSpaceEvents = () => {
-  var apiUrl = 'http://api.open-notify.org/astros.json';
+  var apiUrl = 'https://api.allorigins.win/get?url=http://api.open-notify.org/astros.json';
 
   // Fetch for astronauts API
   fetch(apiUrl)
@@ -45,9 +47,17 @@ var fetchSpaceEvents = () => {
       console.log('Error fetching astronauts:', error);
     });
 };
+var map = L.map('map', {
+  center: [0,0],
+  zoom: 1
+});
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 5,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
 var trackISSLocation = () => {
-  var apiUrl = 'http://api.open-notify.org/iss-now.json';
+  var apiUrl = 'https://api.allorigins.win/get?url=http://api.open-notify.org/iss-now.json';
   
     // Fetch for ISS location API
     fetch(apiUrl)
@@ -61,35 +71,15 @@ var trackISSLocation = () => {
       console.log(longitude);
       var locationInfo = document.getElementById('locationInfo');
       // locationInfo.innerHTML = '';
+      latitudeEl = latitude;
+      longitudeEl = longitude;
 
-      var coordinatesE1 = document.createElement('div');
-      coordinatesE1.classList.add('coordinates');
-
-      var latitudeE1 = document.createElement('span');
-      latitudeE1.textContent = 'Latitude: ' + latitude;
-
-      var longitudeE1 = document.createElement('span');
-      longitudeE1.textContent = 'Longitude: ' + longitude;
-
-      coordinatesE1.appendChild(latitudeE1);
-      coordinatesE1.appendChild(longitudeE1);
-      locationInfo.appendChild(coordinatesE1);
-      L.marker([latitude, longitude]).addTo(map);
+      var marker = L.marker([latitudeEl, longitudeEl]).addTo(map);
     })
     .catch(error => {
       console.log('Error fetching ISS location:', error);
     });
 };  
-var map = L.map('map', {
-  center: [0,0],
-  zoom: 1
-});
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 5,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-
 
 
 //function to fetch photos from rover api
