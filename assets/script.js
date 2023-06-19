@@ -12,7 +12,7 @@ var longitudeEl
 
 // Function to fetch Mars weather data
 var fetchSpaceEvents = () => {
-  var apiUrl = 'http://api.open-notify.org/astros.json';
+  var apiUrl = 'https://api.allorigins.win/get?url=http://api.open-notify.org/astros.json';
 
   // Fetch for astronauts API
   fetch(apiUrl)
@@ -57,7 +57,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var trackISSLocation = () => {
-  var apiUrl = 'http://api.open-notify.org/iss-now.json';
+  var apiUrl = 'https://api.allorigins.win/get?url=http://api.open-notify.org/iss-now.json';
   
     // Fetch for ISS location API
     fetch(apiUrl)
