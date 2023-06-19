@@ -187,6 +187,8 @@ var showSlide = (index) => {
   // Event listener for the rover form submission
   roverForm.addEventListener('submit', event => {
     event.preventDefault();
+
+    carouselExampleControls.removeAttribute("hidden");
   
     var roverSelect = document.getElementById('roverSelect');
     var dateInput = document.getElementById('dateInput');
