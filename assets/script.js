@@ -57,7 +57,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var trackISSLocation = () => {
-  var apiUrl = 'https://api.open-notify.org/iss-now.json';
+  var apiUrl = 'http://api.open-notify.org/iss-now.json';
   
     // Fetch for ISS location API
     fetch(apiUrl)
