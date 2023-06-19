@@ -128,7 +128,6 @@ var fetchRoverPhotos = (rover, date) => {
 };
 
 var saveHistory = (rover, date) =>{  
-
   const element = {
     rover : rover,
     date : date
@@ -140,7 +139,8 @@ var saveHistory = (rover, date) =>{
   else{
     //prevent save repeted elements 
     for (let i = 0; i < history.length; i++) {
-      if((history[i].rover == rover) && (history[i].date == date)){
+      if((history[i].rover === rover) && (history[i].date === date)){
+        console.log(i);
         return;
       }
     }
