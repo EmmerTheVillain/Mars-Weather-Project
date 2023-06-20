@@ -122,23 +122,19 @@ var saveHistory = (rover, date) =>{
     rover : rover,
     date : date
   };
-
+  
   var history = JSON.parse(localStorage.getItem('history'));
-  if(history == null)
+  
+  if (!Array.isArray(history)){
     history = Array();
-  else{
-    //prevent save repeted elements 
-    for (let i = 0; i < history.length; i++) {
-      if((history[i].rover === rover) && (history[i].date === date)){
-        console.log(i);
-        return;
-      }
-    }
   }
-  //save element in local storage
-  history.push(element);
-  localStorage.setItem('history', JSON.stringify(history));
-  renderHistory();
+  
+  if(history.length < 4 ){
+     //save element in local storage
+     history.push(element);
+     localStorage.setItem('history', JSON.stringify(history));
+     renderHistory();
+  }
 }
 
 var renderHistory = () => {
@@ -154,10 +150,6 @@ var renderHistory = () => {
       var historyELement = $('<button type="button" id="historyButton" class="btn btn-primary col-4 m-2"></button>');
       historyELement.text((history[i].rover + ' (' + history[i].date + ')'));
       container.append(historyELement);
-
-   if (i >= 3){
-    endloop;
-  }
   }
 }
   
@@ -221,6 +213,12 @@ var showSlide = (index) => {
     }
     showSlide(currentPhotoIndex);
   });
+
+  document.getElementById('deleteHistory').addEventListener('click', () =>{
+    history = Array();
+    localStorage.setItem('history', JSON.stringify(history));
+    renderHistory();
+  })
   // Call the function to fetch Mars weather on page load
   
   fetchSpaceEvents();
