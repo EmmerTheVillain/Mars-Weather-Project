@@ -112,7 +112,6 @@ var fetchRoverPhotos = (rover, date) => {
       currentPhotoIndex = 0;
       localStorage.setItem('photoUrls', JSON.stringify(photoUrls));
       showSlide(currentPhotoIndex);
-      saveHistory(rover, date);
     })
     .catch(error => {
       document.querySelectorAll('.carousel')[0].classList.add("Hide");
@@ -189,7 +188,8 @@ var showSlide = (index) => {
       $('#exampleModal').modal('show');
       errorMessage.textContent = 'The date entered does not provide a valid response.';
     }  else{
-      fetchRoverPhotos(selectedRover, selectedDate);
+      fetchRoverPhotos(selectedRover, selectedDate);      
+      saveHistory(selectedRover, selectedDate);
     }
   });  
 
