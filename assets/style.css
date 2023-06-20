@@ -44,3 +44,8 @@ img {
 .Hide {
     display: none;
 }
+.list-item{
+    font-size: large;
+    font-weight: lighter;
+    margin-top: 1.5%;
+}

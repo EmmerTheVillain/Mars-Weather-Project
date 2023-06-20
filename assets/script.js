@@ -30,6 +30,7 @@ var fetchSpaceEvents = () => {
       astronauts.forEach(astronaut => {
         var astronautE1 = document.createElement('div');
         astronautE1.classList.add('astronaut');
+        astronautE1.classList.add('list-item');
         
         var nameE1 = document.createElement('span');
         nameE1.textContent = 'Name: ' + astronaut.name;
