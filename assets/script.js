@@ -129,16 +129,7 @@ var saveHistory = (rover, date) =>{
   
   if (!Array.isArray(history)){
     history = Array();
-<<<<<<< HEAD
-=======
-  else{
-    //prevent save repeted elements 
-    for (let i = 0; i < history.length; i++) {
-      if((history[i].rover == rover) && (history[i].date == date)){
-        return;
-      }
-    }
->>>>>>> 5610425b49b1f0fc21bd7029b90ae2927e26f51f
+
   }
   
   if(history.length < 4 ){
