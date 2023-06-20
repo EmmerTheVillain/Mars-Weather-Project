@@ -47,5 +47,17 @@ img {
 .list-item{
     font-size: large;
     font-weight: lighter;
-    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+#weatherInfo:hover {
+    cursor: pointer;
+}
+
+#hidePeopleSpace{
+    font-size: medium;
+    color:#25211d;
+}
+
+#hidePeopleSpace:hover{
+    cursor: pointer;
 }

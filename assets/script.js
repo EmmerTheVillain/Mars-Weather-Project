@@ -42,7 +42,6 @@ var fetchSpaceEvents = () => {
         astronautE1.appendChild(craftE1);
         astronautsE1.appendChild(astronautE1);
       });
-      
       spaceInfo.appendChild(astronautsE1);
     })
     .catch(error => {
@@ -223,8 +222,20 @@ var showSlide = (index) => {
     localStorage.setItem('history', JSON.stringify(history));
     renderHistory();
   })
+
+  document.getElementById('weatherInfo').addEventListener('click', () =>{
+    fetchSpaceEvents();
+    document.getElementById('hidePeopleSpace').classList.remove("Hide");
+  })
+
+  document.getElementById('hidePeopleSpace').addEventListener('click', () =>{
+    var spaceInfo = document.getElementById('spaceInfo');
+    spaceInfo.innerHTML = '';
+    document.getElementById('hidePeopleSpace').classList.add("Hide");
+  })
+
+
   // Call the function to fetch Mars weather on page load
   
-  fetchSpaceEvents();
   trackISSLocation();
   renderHistory();
