@@ -57,6 +57,10 @@ img {
     font-size: medium;
     color:#25211d;
 }
+#pis{
+    transform: rotate(90deg);
+    width: 25px;
+}
 
 #hidePeopleSpace:hover{
     cursor: pointer;

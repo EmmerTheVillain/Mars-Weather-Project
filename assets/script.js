@@ -226,12 +226,14 @@ var showSlide = (index) => {
   document.getElementById('weatherInfo').addEventListener('click', () =>{
     fetchSpaceEvents();
     document.getElementById('hidePeopleSpace').classList.remove("Hide");
+    document.getElementById('pis').classList.add("Hide");
   })
 
   document.getElementById('hidePeopleSpace').addEventListener('click', () =>{
     var spaceInfo = document.getElementById('spaceInfo');
     spaceInfo.innerHTML = '';
-    document.getElementById('hidePeopleSpace').classList.add("Hide");
+    document.getElementById('hidePeopleSpace').classList.add("Hide");    
+    document.getElementById('pis').classList.remove("Hide");
   })
 
 
