@@ -1,4 +1,4 @@
- # # Mars-Weather-Project
+ # # Space Explorer-Project
 
 ## Description
 
@@ -13,7 +13,7 @@ N/a
 ## technologies used
 
 - CSS, JS, HTML, Github, Apis 
-- Boostrap, jquery
+- Boostrap, jquery, dayjs, leaflet NASA Mars Rover Photos, Open Notify ISS Current Location and Open Notify People in Space
 
 
 ## Usage
