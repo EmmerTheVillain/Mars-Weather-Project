@@ -1,18 +1,34 @@
-# Mars-Weather-Project
-application for checking historical and current weather on mars
+ # # Mars-Weather-Project
+
+## Description
+
+This application allows the user to view, acquire, and interact with data from NASA about photos taken by rovers in a specific day.
+The user can also view the name of the people who are in space, their creft And the Current Location of the International Space Station (ISS). This project helps to make the data provided by NASA on data collected from Mars more accessible
 
 
-## Motivation
- AS A USER I want to BE ABLE TO SEE THE WEATHER FOR A GIVEN DATE ON MARS, so that WE CAN HAVE A QUICK ACCESSIBLE METHOD TO ACQURE HISTORICAL WEATHER DATA ON MARS
+## Installation
 
-## Purpose 
-The purpose of this project is to provide a quick and easy way to access historical weather data for Mars
+N/a
 
-## Goal
-This project helps to make the data provided by NASA on weather data collected from Mars more accessible 
+## Usage
 
-## Retrospective
- what did you learn
+You can access to the web page in: https://emmerthevillain.github.io/Mars-Weather-Project/
 
- ## Credits
- ## Collaborators  
+
+https://contrerassofia.github.io/weatherDashboard/
+
+   ![ScreenShot!](./assets/gif/Space-Explorer.gif "ScreenShot")
+
+
+## Credits
+
+List of collaborators:
+
+Domino Guy: https://github.com/GuyD15
+Michael Barber: https://github.com/EmmerTheVillain
+Travis Ouellette: https://github.com/touel
+Sofia Contreras: https://github.com/ContrerasSofia
+
+## License
+
+Please refer to the LICENSE in the repo.

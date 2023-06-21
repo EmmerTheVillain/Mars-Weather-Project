@@ -1,0 +1,67 @@
+:root {
+    /* declare a variable with `--` syntax */
+    --dark: #25211d;
+    --dark-blue: rgb(0, 21, 90);  
+    --light: #c9f3fa;
+    --light-purple: #693bbd;
+}
+
+body{
+    background-color: var(--dark);
+    background-image: url("images/space.jpg");
+    background-size: cover;
+}
+img {
+    border-radius: 25px;
+    max-width: 100%;
+
+}
+
+.card{
+    background-color: var(--light-purple);
+    color: var(--light);
+    box-shadow: var(--dark-blue);
+}
+#carouselExampleControls {
+    margin-top: 20px;
+}
+.h1 h2 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--light);
+}
+
+.p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#photoButton {
+    margin: 5px 0px 0px 0px;
+}
+
+#map { 
+    height: 500px
+}
+.Hide {
+    display: none;
+}
+.list-item{
+    font-size: large;
+    font-weight: lighter;
+    margin-bottom: 1.5%;
+}
+#weatherInfo:hover {
+    cursor: pointer;
+}
+
+#hidePeopleSpace{
+    font-size: medium;
+    color:#25211d;
+}
+#pis{
+    transform: rotate(90deg);
+    width: 25px;
+}
+
+#hidePeopleSpace:hover{
+    cursor: pointer;
+}
