@@ -14,9 +14,6 @@ N/a
 
 You can access to the web page in: https://emmerthevillain.github.io/Mars-Weather-Project/
 
-
-https://contrerassofia.github.io/weatherDashboard/
-
    ![ScreenShot!](./assets/gif/Space-Explorer.gif "ScreenShot")
 
 
