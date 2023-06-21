@@ -10,12 +10,15 @@ The user can also view the name of the people who are in space, their creft And 
 
 N/a
 
+## technologies used
+
+- CSS, JS, HTML, Github, Apis 
+- Boostrap, jquery
+
+
 ## Usage
 
 You can access to the web page in: https://emmerthevillain.github.io/Mars-Weather-Project/
-
-
-https://contrerassofia.github.io/weatherDashboard/
 
    ![ScreenShot!](./assets/gif/Space-Explorer.gif "ScreenShot")
 
@@ -24,10 +27,10 @@ https://contrerassofia.github.io/weatherDashboard/
 
 List of collaborators:
 
-Domino Guy: https://github.com/GuyD15
-Michael Barber: https://github.com/EmmerTheVillain
-Travis Ouellette: https://github.com/touel
-Sofia Contreras: https://github.com/ContrerasSofia
+- Domino Guy: https://github.com/GuyD15
+- Michael Barber: https://github.com/EmmerTheVillain
+- Travis Ouellette: https://github.com/touel
+- Sofia Contreras: https://github.com/ContrerasSofia
 
 ## License
 
